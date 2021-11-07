@@ -38,7 +38,7 @@ const Stack = createStackNavigator();
 
 function StackNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="Main">
       <Stack.Screen name="Main" component={Main}/>
       <Stack.Screen name="Sub" component={Sub}/>
     </Stack.Navigator>
@@ -47,7 +47,7 @@ function StackNavigator() {
 
 export default function() {
   return (
-    <NavigationContainer>
+    <NavigationContainer onStateChange={( newState ) => console.log(newState)}>
       <StackNavigator />
     </NavigationContainer>
   )
