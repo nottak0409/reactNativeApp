@@ -43,8 +43,8 @@ const Drawer = createDrawerNavigator();
 function DrawerNavigator() {
   return (
     <Drawer.Navigator>
-      <Drawer.Screen name="Main" component={Main}/>
-      <Drawer.Screen name="Sub" component={Sub}/>
+      <Drawer.Screen name="Main" component={Main} options={{ title: 'Main' }}/>
+      <Drawer.Screen name="Sub" component={Sub} options={{ title: 'Sub' }}/>
     </Drawer.Navigator>
   )
 }
