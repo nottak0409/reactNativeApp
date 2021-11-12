@@ -1,7 +1,7 @@
 import React from 'react'
-import {View, StyleSheet, Text, TouchableOpacity} from 'react-native'
-import { createStackNavigator } from '@react-navigation/stack';
-import { useNavigation, NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { View, StyleSheet, Text } from 'react-native'
 
 const styles = StyleSheet.create({
     container: {
@@ -12,16 +12,9 @@ const styles = StyleSheet.create({
 })
 
 function Main() {
-  const {navigate} = useNavigation();
   return (
     <View style={styles.container}>
       <Text>Main</Text>
-      <TouchableOpacity
-        onPress={() => {
-          navigate('Sub')
-        }}>
-          <Text>Go to sub</Text>
-        </TouchableOpacity>
     </View>
   )
 }
@@ -34,21 +27,20 @@ function Sub() {
   )
 }
 
-const Stack = createStackNavigator();
-
-function StackNavigator() {
+const Tab = createBottomTabNavigator();
+function TabNavigator() {
   return (
-    <Stack.Navigator initialRouteName="Main">
-      <Stack.Screen name="Main" component={Main}/>
-      <Stack.Screen name="Sub" component={Sub}/>
-    </Stack.Navigator>
+    <Tab.Navigator>
+      <Tab.Screen name="Main" component={Main}/>
+      <Tab.Screen name="Sub" component={Sub}/>
+    </Tab.Navigator>
   )
 }
 
 export default function() {
   return (
     <NavigationContainer onStateChange={( newState ) => console.log(newState)}>
-      <StackNavigator />
+      <TabNavigator />
     </NavigationContainer>
   )
 }
