@@ -24,12 +24,9 @@ function Main() {
 }
 
 function Sub() {
-  const { navigate } = useNavigation()
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={(() => navigate('Main', { title: `${Date.now()}`}))}>
-        <Text>Go to Main</Text>
-      </TouchableOpacity>
+      <Text>Sign up or login</Text>
     </View>
   )
 }
@@ -38,42 +35,12 @@ const Stack = createStackNavigator();
 
 function StackNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator mode="modal">
       <Stack.Screen name="Main" component={Main} />
       <Stack.Screen
         name="Sub"
         component={Sub}
-        options={( option ) => {
-          const route: any = option.route
-          const navigation = option.navigation
-          const title = route.params && route.params.title ? route.params.title : '0';
-          const seed = parseInt(title, 10) % 3;
-          switch (seed) {
-            case 0:
-              console.log("go back")
-              navigation.goBack()
-              break;
-            case 1:
-              console.log("replace")
-              navigation.replace("Main")
-              break;
-            default:
-              console.log("reset")
-              const action = CommonActions.reset({
-                index: 0,
-                routes: [
-                  {
-                    name: 'Main'
-                  }
-                ]
-              });
-              navigation.dispatch(action)
-              break;
-            }
-            return {title}
-          }
-        }
-        />
+      />
     </Stack.Navigator>
   )
 }
