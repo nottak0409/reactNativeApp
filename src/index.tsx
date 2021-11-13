@@ -35,7 +35,7 @@ const Stack = createStackNavigator();
 
 function StackNavigator() {
   return (
-    <Stack.Navigator mode="modal">
+    <Stack.Navigator mode="modal" headerMode="none">
       <Stack.Screen name="Main" component={Main} />
       <Stack.Screen
         name="Sub"
