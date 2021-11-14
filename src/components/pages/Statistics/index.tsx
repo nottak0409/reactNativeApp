@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 export default function Statistics() {
   return (
     <View style={styles.container}>
-      <Text>Initial</Text>
+      <Text>Statistics</Text>
     </View>
   );
 }
