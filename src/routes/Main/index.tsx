@@ -1,7 +1,7 @@
 import React from "react";
 import { createStackNavigator, StackCardInterpolationProps } from "@react-navigation/stack";
-import { INITIAL, LOADING, HOME, CHOOSE_LOGIN } from "src/constants/path";
-import { Initial, Loading, Home, ChooseLogin } from "src/components/pages";
+import { INITIAL, LOADING, HOME, CHOOSE_LOGIN } from "../../constants/path";
+import { Initial, Loading, Home, ChooseLogin } from "../../components/pages";
 import * as UiContext from '../../contexts/ui'
 
 const Stack = createStackNavigator()
